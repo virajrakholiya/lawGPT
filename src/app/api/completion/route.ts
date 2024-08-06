@@ -7,7 +7,6 @@ import {
   SystemMessage,
 } from "@langchain/core/messages";
 
-export const time = 30;
 
 // Define your custom instructions
 const customInstructions = `
