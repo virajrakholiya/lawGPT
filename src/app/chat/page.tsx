@@ -7,11 +7,12 @@ import { useChat } from "ai/react";
 import Markdown from 'react-markdown'
 import Image from 'next/image'
 import logo from '../../../public/imge.jpeg'
+
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
     api: "./../api/completion",
   });
-
+  
   return (
     <>
       <Navbar />
@@ -30,7 +31,7 @@ export default function Chat() {
           ) : (
             <div className="flex items-center justify-center h-full">
               <Image
-                src={logo} 
+                src={logo}
                 alt="Placeholder"
                 width={400}
                 height={400}
@@ -38,8 +39,12 @@ export default function Chat() {
               />
             </div>
           )}
+          {isLoading && (
+            <div className="flex justify-center items-center">
+<div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>            </div>
+          )}
         </div>
-
+        
         <form
           onSubmit={handleSubmit}
           className="bg-white border-t p-5 flex flex-row gap-3 sticky bottom-0"
@@ -50,7 +55,7 @@ export default function Chat() {
             placeholder="Say something..."
             onChange={handleInputChange}
           />
-          <Button type="submit">Send</Button>
+          <Button type="submit" disabled={isLoading}>Send</Button>
         </form>
       </div>
     </>
