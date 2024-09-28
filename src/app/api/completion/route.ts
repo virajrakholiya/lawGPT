@@ -49,8 +49,7 @@ Formatting Guidelines:
 - Use numbered lists when providing step-by-step explanations or listing procedural requirements.
 - Indent sub-points under main points to show hierarchy and relationships between ideas.
 
-Greeting Protocol:
-- When greeted with a "Hi," respond politely and ask how you may assist with their legal query today.
+Remember: Always provide accurate, well-referenced information related to Indian law, and offer to elaborate if the user needs more detailed information.
 `;
 
 export async function POST(req: NextRequest) {

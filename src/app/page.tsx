@@ -13,11 +13,9 @@ export default function Component() {
           Your AI-powered legal assistant. Ask me anything about legal matters
           and get instant answers.
         </p>
-        <Button className="w-full max-w-xs mx-auto">
-          <Link  href={"/chat"}>
+          <Link  href={"/chat"} className="bg-black text-white px-4 py-2 rounded-md">
             Get Started
           </Link>
-        </Button>
       </div>
     </div>
   );

@@ -4,15 +4,16 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useChat } from "ai/react";
-import Markdown from 'react-markdown'
-import Image from 'next/image'
-import logo from '../../../public/imge.jpeg'
+import Markdown from "react-markdown";
+import Image from "next/image";
+import logo from "../../../public/imge.jpeg";
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: "./../api/completion",
-  });
-  
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+    useChat({
+      api: "./../api/completion",
+    });
+
   return (
     <>
       <Navbar />
@@ -25,7 +26,7 @@ export default function Chat() {
                 className="whitespace-pre-wrap border p-2 rounded-md"
               >
                 {m.role === "user" ? "User: " : "LawGPT: "}
-                <Markdown>{m.content}</Markdown>
+                <Markdown className="prose max-w-none">{m.content}</Markdown>
               </div>
             ))
           ) : (
@@ -41,10 +42,11 @@ export default function Chat() {
           )}
           {isLoading && (
             <div className="flex justify-center items-center">
-<div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>            </div>
+              <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>{" "}
+            </div>
           )}
         </div>
-        
+
         <form
           onSubmit={handleSubmit}
           className="bg-white border-t p-5 flex flex-row gap-3 sticky bottom-0"
@@ -55,7 +57,9 @@ export default function Chat() {
             placeholder="Say something..."
             onChange={handleInputChange}
           />
-          <Button type="submit" disabled={isLoading}>Send</Button>
+          <Button type="submit" disabled={isLoading}>
+            Send
+          </Button>
         </form>
       </div>
     </>
